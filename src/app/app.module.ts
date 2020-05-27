@@ -3,16 +3,25 @@ import { NgModule } from '@angular/core';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
+import { TodayComponent } from './today/today.component';
+import { HttpClientModule} from '@angular/common/http';
+import { WeatherService } from './weather.service';
+import { AgmCoreModule } from "@agm/core";
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    TodayComponent
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    HttpClientModule,
+    AgmCoreModule.forRoot({
+      apiKey : ''
+    })
   ],
-  providers: [],
+  providers: [WeatherService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
